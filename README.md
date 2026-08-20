@@ -169,7 +169,6 @@ with httpx.Client(transport=replayer.create_mock_transport()) as client:
 ## 🛠️ Air-Gapped CI/CD Compliance Matrix
 
 
-````
 
 This infrastructure is verified to pass inside zero-internet enterprise configurations. By modifying your continuous integration environment routing to point outbound requests back to the local device (`127.0.0.1`), AgentTape guarantees your tests run 100% offline.
 
@@ -189,11 +188,7 @@ This infrastructure is verified to pass inside zero-internet enterprise configur
 ## 📜 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-```text
-
----
-
+text
 ### 🚀 Next Steps to Complete Your Launch:
 1. Initialize git locally if you haven't already: `git init`, `git add .`, and `git commit -m "feat: complete top 0.1% agent testing engine"`
 2. Push your project straight to GitHub and **pin it** to your main account dashboard.
