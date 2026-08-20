@@ -111,7 +111,7 @@ Install the package framework locally inside a virtual environment in editable d
 
 ```bash
 # 1. Clone the system repository
-git clone https://github.com
+git clone https://github.com/Muthu324/agenttape/
 cd agenttape
 
 # 2. Set up and activate virtual environment
