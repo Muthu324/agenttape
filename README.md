@@ -25,54 +25,7 @@ AgentTape introduces an air-gapped network virtualisation layer. By wrapping you
 
 ## 🏗️ System Architecture Overview
 
-```text
-+---------------------------------------------------------------------------------------+
-
-|                                    AGENTTAPE                                          |
-|                          SYSTEM ARCHITECTURE OVERVIEW                                 |
-+---------------------------------------------------------------------------------------+
-
-|                                                                                       |
-|                               +--------------------------+                            |
-|                               |  Target Agent App Node   |                            |
-|                               |   (LangGraph / CrewAI)   |                            |
-|                               +------------+-------------+                            |
-|                                            |                                          |
-|                                            v                                          |
-|  ===================================================================================  |
-|  AGENTTAPE INFRASTRUCTURE ENGINE CORRIDOR (INTERCEPTION HANDLER)                      |
-|  ===================================================================================  |
-|                                                                                       |
-|   +-------------------------------------------------------------------------------+   |
-|   | 1. SYSTEM ADAPTER LAYER (Monkey-Patches Core Networking / Driver Handles)     |   |
-|   +---------------------------------------+---------------------------------------+   |
-|                                           | Extracts Native Payload                   |
-|                                           v                                           |
-|   +-------------------------------------------------------------------------------+   |
-|   | 2. STREAMING SECURITY LAYER (PII Scrubber & Regex Credential Masquerading)     |   |
-|   +---------------------------------------+---------------------------------------+   |
-|                                           | Sanitized Node Sequence                   |
-|                                           v                                           |
-|   +-------------------------------------------------------------------------------+   |
-|   | 3. PLANNING PATH LAYER (DAG State Branch Tracking & Context Sequence Router)  |   |
-|   +---------------------------------------+---------------------------------------+   |
-|                                           | Graph Node Frame Dispatched               |
-|                                           v                                           |
-|                        +------------------+------------------+                        |
-|                        |                                     |                        |
-|                        v [MODE: RECORD]                      v [MODE: REPLAY]         |
-|         +--------------+--------------+       +--------------+--------------+         |
-|         | Hit Live Provider/MCP Ports |       | 4. SEMANTIC MATCHING ENGINE |         |
-|         +--------------+--------------+       +--------------+--------------+         |
-|                        |                                     |                        |
-|                        v Parse & Mask                        v Evaluate String        |
-|         +--------------+--------------+       +--------------+--------------+         |
-|         | Serialize & Build Local     |       | Score >92%   | YES -> Inject  |         |
-|         | JSON `.tape` Cache Database |       |              | NO  -> Fail CI |         |
-|         +-----------------------------+       +-----------------------------+         |
-|                                                                                       |
-+---------------------------------------------------------------------------------------+
-```
+![AgentTape System Architecture](assets/architecture.png)
 
 ### 🧩 Core Infrastructure Layers
 
